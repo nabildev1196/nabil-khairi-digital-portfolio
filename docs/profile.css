@@ -4,3 +4,30 @@
 body{overflow-x:clip}
 
 html{overflow-x:hidden}.portrait-area{overflow:clip;padding-left:14px;padding-right:14px}
+
+/* Personal-brand refresh and accessible ambient motion. */
+.role{line-height:1.8;font-size:13px;letter-spacing:1.4px}.role-secondary{color:#a7c7d6;font-size:11px}
+.service-note{font-size:12px;color:var(--muted);line-height:1.8;margin:22px 0 26px;max-width:900px}
+.constellation{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;opacity:.42}
+.constellation svg{width:100%;height:100%;min-height:800px}
+.constellation path{fill:none;stroke:#35778c;stroke-width:.7}
+.constellation circle{fill:#69dff1}
+.network-a{animation:network-drift-a 30s ease-in-out infinite alternate}
+.network-b{animation:network-drift-b 38s ease-in-out infinite alternate}
+.constellation circle{animation:star-glow 7s ease-in-out infinite alternate}
+.ambient{position:fixed;height:100vh;animation:ambient-drift 24s ease-in-out infinite alternate;opacity:.8}
+.orbit:before{animation:orbital-spin 40s linear infinite}
+.orbit:after{animation:orbital-spin 18s linear infinite reverse}
+.orbit-track{position:absolute;inset:-4px;border-radius:50%;animation:orbital-spin 14s linear infinite;pointer-events:none}
+.orbit-track .orbit-dot{right:auto;left:50%;top:-4px;transform:translateX(-50%)}
+.portrait-area{padding-top:44px;padding-bottom:12px}
+.footer-controls{display:flex;gap:22px;align-items:center;font-size:11px;color:var(--muted)}
+#motion-toggle{background:#0b1825;border:1px solid #31546a;border-radius:5px;color:#b6ccdf;font:11px monospace;padding:9px 12px;cursor:pointer}
+@keyframes orbital-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes network-drift-a{from{transform:translate(-16px,-8px)}to{transform:translate(22px,28px)}}
+@keyframes network-drift-b{from{transform:translate(18px,15px)}to{transform:translate(-24px,-20px)}}
+@keyframes ambient-drift{from{transform:translateY(-12px)}to{transform:translateY(12px)}}
+@keyframes star-glow{from{opacity:.35}to{opacity:1}}
+.motion-paused *,.motion-paused *:before,.motion-paused *:after{animation-play-state:paused!important}
+@media(max-width:620px){.role{font-size:11px}.role-secondary{font-size:10px}.constellation{opacity:.28}.facts strong{font-size:11px}.footer-controls{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}}
