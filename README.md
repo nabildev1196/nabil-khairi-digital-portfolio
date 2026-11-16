@@ -1,44 +1,19 @@
-# Portfolio Saya 1
+# Nabil Khairi — Personal Profile
 
-Personal portfolio website for Nabil Khairi, built with Next.js, TypeScript, and Tailwind CSS.
+Live website: https://nabildev1196.github.io/nabil-khairi-digital-portfolio/
 
-## Tech Stack
+## Current website
+The current administrator profile is a dependency-free static website in `docs/`, published by GitHub Pages from `main /docs`.
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Lucide React
+- `docs/index.html`: profile content and social links
+- `docs/profile.css`: responsive navy/cyan visual design
+- `docs/profile.js`: navigation highlighting and copy-email button
+- `docs/nabil-khairi.png`: existing portrait
+- `docs/favicon.svg`: NK identity
 
-## Run Locally
+Preview with `python -m http.server 8080 --directory docs`.
+Run `npm run build:pages` to validate the static publication files. No build or installation is needed to publish.
 
-```bash
-npm install
-npm run dev
-```
+Earlier Next.js source is retained for reference. It is not the source of the current published page. Do not export it over docs; edit the static files above.
 
-Open `http://localhost:3000` in your browser.
-
-## Build
-
-```bash
-npm run build
-```
-
-## Publish to GitHub Pages
-
-This repository uses the `main` branch and `/docs` folder as the GitHub Pages source.
-
-```bash
-npm run build:pages
-git add .
-git commit -m "Update portfolio"
-git push
-```
-
-## Edit Portfolio Content
-
-Most personal details, skills, projects, experience items, and contact links are stored in:
-
-```txt
-data/portfolio.ts
-```
+Content reflects the supplied administrator role and scholarship responsibilities. Contact is via email; no server or form collection is configured.

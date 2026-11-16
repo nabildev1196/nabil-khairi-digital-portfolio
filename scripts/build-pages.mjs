@@ -1,41 +1,4 @@
-import { spawnSync } from "node:child_process";
-import { cpSync, existsSync, rmSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
-
-const command = process.platform === "win32" ? "npm.cmd" : "npm";
-const result = process.platform === "win32" ? spawnSync(`${command} run build`, {
-  stdio: "inherit",
-  shell: true,
-  env: {
-    ...process.env,
-    GITHUB_PAGES: "true",
-  },
-}) : spawnSync(command, ["run", "build"], {
-  stdio: "inherit",
-  env: {
-    ...process.env,
-    GITHUB_PAGES: "true",
-  },
-});
-
-if (result.status !== 0) {
-  if (result.error) {
-    console.error(result.error.message);
-  }
-
-  process.exit(result.status ?? 1);
-}
-
-const root = process.cwd();
-const source = resolve(root, "out");
-const destination = resolve(root, "docs");
-
-if (!existsSync(source)) {
-  throw new Error("The static export folder does not exist.");
-}
-
-rmSync(destination, { recursive: true, force: true });
-cpSync(source, destination, { recursive: true });
-writeFileSync(resolve(destination, ".nojekyll"), "");
-
-console.log("Built and copied static export to docs for GitHub Pages.");
+import {existsSync,readFileSync} from 'node:fs';
+for(const file of ['docs/index.html','docs/profile.css','docs/profile.js','docs/nabil-khairi.png','docs/favicon.svg']) {if(!existsSync(file)) throw new Error('Missing publication file: '+file);}
+const html=readFileSync('docs/index.html','utf8');if(!html.includes('nabilhasan100@gmail.com'))throw new Error('Contact email missing');
+console.log('Static GitHub Pages files are ready in docs/. No compilation required.');
