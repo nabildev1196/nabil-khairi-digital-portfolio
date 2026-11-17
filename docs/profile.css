@@ -31,3 +31,6 @@ html{overflow-x:hidden}.portrait-area{overflow:clip;padding-left:14px;padding-ri
 .motion-paused *,.motion-paused *:before,.motion-paused *:after{animation-play-state:paused!important}
 @media(max-width:620px){.role{font-size:11px}.role-secondary{font-size:10px}.constellation{opacity:.28}.facts strong{font-size:11px}.footer-controls{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}}
+
+/* Square brand portrait: preserve the complete composition within the orbit. */
+.portrait{background:#071522}.portrait img{transform:none;object-position:center;object-fit:cover}
